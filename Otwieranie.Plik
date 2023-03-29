@@ -1,0 +1,8 @@
+//string[] s = System.IO.File.ReadAllLines("C:\\Users\\uczen\\Desktop\\Matura\\przyklad.txt");
+
+//foreach (string item in s)
+//{
+//    Console.WriteLine(item);
+//    string[] TE = item.Split(" ");
+//    Console.WriteLine(TE[1]);
+//}
