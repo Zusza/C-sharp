@@ -1,56 +1,87 @@
-﻿///Funkcje
-///Zad.1.1 - Dodawanie liczb cyfry - % 10 i / 10
-//int SumaCy(int n)
+﻿// 1. Funkcje
+
+// 1.1 - Napisz funkcje która zwraca sume cyfr podaniej liczby
+
+//int SumLiczb(int x)
 //{
 //    int suma = 0;
-//    while (n > 0)
+//    while(x != 0)
 //    {
-//        suma += n % 10;
-//        n = n / 10;
+//        suma += x % 10;
+//        x /= 10;
 //    }
-//    return suma;    
+//    return suma;
 //}
-//int n = int.Parse(Console.ReadLine());
-//Console.WriteLine(SumaCy(n));
+//int y = int.Parse(Console.ReadLine());
+//Console.WriteLine(SumLiczb(y));
 
-///Zad.1.2
-//string napis = "etacidnyS deerC s'nissassA | rehctiW ehT | enoG syaD";
-//char[] C = napis.ToCharArray();
-//Array.Reverse(C);
-//string wynik = new string(C);
-//Console.WriteLine(wynik);
-///Zad.1.3
-//int z = int.Parse(Console.ReadLine());
-//int f(int x)
+// 1.2 - Napisz funkcje, która zwraca odwrócony do wprowadzonego napis
+//string FunNap(string str)
 //{
-//    while(x > 0)
+//    char[] napis = str.ToCharArray();
+//    char[] napis2 = str.ToCharArray();
+//    for (int i = 0; i < napis.Length; i++)
 //    {
-//        Console.Write(x + "-");
-//        x = x / 2;
+//        napis[i] = napis2[napis.Length - i - 1];
 //    }
-//    return 0;
+//    string Odw = new string(napis);
+//    return Odw;
 //}
-//Console.WriteLine(f(z));
 
-///Ciągi Belgijskie
-///Zad.2.1
-//int reku1(int n)
+//string c = Console.ReadLine();
+//Console.WriteLine(FunNap(c));
+
+
+// 1.3 - Napisz funkcje, która wypisuje łańcuch połówek wpisanej liczby, aż do 1. Np po wpisaniu 30 otrzymujemy 30-15-7-3-1.
+
+//void Dziel(int v)
+//{
+//    while(v > 0)
+//    {
+//        Console.Write(v + "-");
+//        v /= 2;
+//    }
+
+//}
+
+//int v = int.Parse(Console.ReadLine());
+//Dziel(v);
+
+// 2. Ciągi Belgijskie
+
+// 2.1 - Napisz rekurencyjnie n liczb: 3,5,7,9,11...
+
+//int ciag1(int n)
 //{
 //    if (n == 1) return 3;
-//    return reku1(n - 1) + 2;
+//    return ciag1(n - 1) + 2;
 //}
-//int n = int.Parse(Console.ReadLine());
-//for (int i = 1; i <= n; i++)
+//int y = int.Parse(Console.ReadLine());
+//for (int i = 1; i <= y; i++)
 //{
-//    Console.WriteLine(reku1(i));
+//    Console.WriteLine(ciag1(i));
 //}
 
-///Zad.2.3
+// 2.2 - Napisz rekurencyjnie n liczb: 6, 12, 24, 48, 96...
+
+//int ciag2(int n)
+//{
+//    if (n == 1) return 6;
+//    return ciag2(n - 1) * 2;
+//}
+//int y = int.Parse(Console.ReadLine());
+//for (int i = 1; i <= y; i++)
+//{
+//    Console.WriteLine(ciag2(i));
+//}
+
+// 2.3 - Napisz rekurencyjnie n liczb: 1,1,3,5,11,21...
+
 //int reku3(int n)
 //{
 //    if (n == 1) return 1;
 //    if (n == 2) return 1;
-//    return 2*reku3(n - 2) + reku3(n - 1);
+//    return 2 * reku3(n - 2) + reku3(n - 1);
 //}
 //int n = int.Parse(Console.ReadLine());
 //for (int i = 1; i <= n; i++)
@@ -58,15 +89,46 @@
 //    Console.WriteLine(reku3(i));
 //}
 
-///Pliki
-///Otwieranie pliku i dodawanie linijki - by Zee
-//using System.IO;
-//var files = Directory.GetFiles("C:/Users/uczen/Desktop/", "OK.txt", SearchOption.AllDirectories);
-//foreach (var i in files)
-//{
-//    File.AppendAllText(i, " - Ezio Auditore da Firenze <3, Edward James Kenway <3, Arno Victor Dorian <3, Jacob Frye <3 -");
-//}
-//var x = File.ReadAllText("C:/Users/uczen/Desktop/OK.txt");
-//Console.WriteLine(x);
+// 2.4 - Napisz rekurencyjnie n liczb: 1,2,-1,3,-4,7,-11,18...
 
-///Zad.3.1
+//int reku4(int n)
+//{
+//    if (n == 1) return 1;
+//    if (n == 2) return 2;
+//    return reku4(n - 2) - reku4(n - 1);
+//}
+//int n = int.Parse(Console.ReadLine());
+//for (int i = 1; i <= n; i++)
+//{
+//    Console.WriteLine(reku4(i));
+//}
+
+// 2.5 - Napisz rekurencyjnie n liczb: 1,2,3,0,6,3,-3,21...
+//Nie zr
+//int reku5(int n)
+//{
+//    if (n == 1) return 1;
+//    if (n == 2) return 2;
+//    return reku5(n - 2) - reku5(n - 1);
+//}
+//int n = int.Parse(Console.ReadLine());
+//for (int i = 1; i <= n; i++)
+//{
+//    Console.WriteLine(reku5(i));
+//}
+
+// 3. Pliki
+
+// 3.1 Stwórz plik z dzisiejszą datą
+
+StreamWriter plik = new StreamWriter("C:\\data.txt");
+
+DateTime dzis = DateTime.Today;
+
+plik.WriteLine(dzis.ToString());
+
+plik.Close();
+
+// 3.2 Zapisz do pliku 10 losowych liczb dwucyfrowych. Odczytaj ten plik i wypisz największą z liczb
+
+// 3.3 Zapisz do pliku 100 losowych liczb trzycyfrowych. Odczytaj ten plik i wypisz wszystkie liczby-palindromy, np 242 itp.
