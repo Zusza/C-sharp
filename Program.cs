@@ -1,14 +1,14 @@
-﻿//Stworzenie tablicy 10 losowych liczb <1;20>
+//Stworzenie tablicy 10 losowych liczb <1;20>
 ///Stwórz tablicę
-//Random r = new Random();
-//int n = 10;
-//int[] T = new int[n];
-//for (int i = 0; i < n; i++)
-//{
-//    T[i] = r.Next(1, 20);
-//    Console.Write(T[i] + " ");
-//}
-
+Random r = new Random();
+int n = 10;
+int[] T = new int[n];
+for (int i = 0; i < n; i++)
+{
+    T[i] = r.Next(1, 20);
+    Console.Write(T[i] + " ");
+}
+Console.WriteLine();
 ///Posortuj w wybrany sposób:
 //Sortowanie przez porównanie:
 //1.Sortowanie bąbelkowe:
@@ -74,14 +74,93 @@
 
 //Sortowana w czasie liniowym:
 //4.Sortowanie przez zliczanie
+//int[] L = new int[20];
+//for (int i = 0; i < n; i++)
+//{
+//    L[T[i]]++;
+//}
+//for (int i = 0; i < L.Length; i++)
+//{
+//    Console.Write(L[i] + " ");
+//}
+//for (int i = 0; i < L.Length; i++)
+//{
+//    int j = 0;
+//    if (L[i] > 0)
+//    {
+//        for (int k = 0; k < L[i]; k++)
+//        {
+//            T[j] = i;
+//            j++;
+//        }
+//    }
+//}
 //5.Sortowanie kubełkowe
-
+//Pominięte - na później
 //Sortowanie przez dzielenie (dziel i zwyciężaj):
-//6.Sortowanie przez scalanie
+//6.Sortowanie przez scalanie - nie działa
+void scalaj(int l, int p)
+{
+    int[] pom = new int[n];
+    for (int a = 0; a < n; a++)
+    {
+        pom[a] = T[a];
+    } 
+    int i;
+    int sr = (l + p) / 2;
+    i = l; //index tabeli
+    int i_le = l;
+    int i_pr = sr;
+    while (i_le <= sr && i_pr <= p)
+    {
+        if (pom[i_le] < pom[i_pr])
+        {
+            T[i] = pom[i_le];
+            i_le++;
+        }
+        else
+        {
+            T[i] = pom[i_pr];
+            i_pr++;
+        }
+        i++;
+    }
+    if (i_le > sr)
+    {
+        while (i_pr < p)
+        {
+            T[i] = pom[i_pr];
+            i_pr++;
+            i++;
+        }
+    }
+    else
+    {
+        while (i_le < sr)
+        {
+            T[i] = pom[i_le];
+            i_le++;
+            i++;
+        }
+    }
+}
+void sortuj(int l, int p)
+{
+    int sr = (l + p) / 2;
+    if (l < sr)
+    {
+        sortuj(l, sr);
+    }
+    if (sr + 1 < p)
+    {
+        sortuj(sr + 1, p);
+    }
+    scalaj(l, p);
+} 
 //7.Quicksort Hoare
 //8.Quicksort Lomuto
 
 //Wyświetlenie posortowanej tablicy
-//Console.WriteLine("\n");
-//for (int i = 0; i < n; i++)
-//    Console.Write(T[i] + " ");
+Console.WriteLine("\n");
+for (int i = 0; i < n; i++)
+    Console.Write(T[i] + " ");
