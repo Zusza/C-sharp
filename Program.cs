@@ -1,14 +1,14 @@
 //Stworzenie tablicy 10 losowych liczb <1;20>
 ///Stwórz tablicę
-Random r = new Random();
-int n = 10;
-int[] T = new int[n];
-for (int i = 0; i < n; i++)
-{
-    T[i] = r.Next(1, 20);
-    Console.Write(T[i] + " ");
-}
-Console.WriteLine();
+//Random r = new Random();
+//int n = 10;
+//int[] T = new int[n];
+//for (int i = 0; i < n; i++)
+//{
+//    T[i] = r.Next(1, 20);
+//    Console.Write(T[i] + " ");
+//}
+//Console.WriteLine();
 ///Posortuj w wybrany sposób:
 //Sortowanie przez porównanie:
 //1.Sortowanie bąbelkowe:
@@ -99,68 +99,124 @@ Console.WriteLine();
 //Pominięte - na później
 //Sortowanie przez dzielenie (dziel i zwyciężaj):
 //6.Sortowanie przez scalanie - nie działa
-void scalaj(int l, int p)
-{
-    int[] pom = new int[n];
-    for (int a = 0; a < n; a++)
-    {
-        pom[a] = T[a];
-    } 
-    int i;
-    int sr = (l + p) / 2;
-    i = l; //index tabeli
-    int i_le = l;
-    int i_pr = sr;
-    while (i_le <= sr && i_pr <= p)
-    {
-        if (pom[i_le] < pom[i_pr])
-        {
-            T[i] = pom[i_le];
-            i_le++;
-        }
-        else
-        {
-            T[i] = pom[i_pr];
-            i_pr++;
-        }
-        i++;
-    }
-    if (i_le > sr)
-    {
-        while (i_pr < p)
-        {
-            T[i] = pom[i_pr];
-            i_pr++;
-            i++;
-        }
-    }
-    else
-    {
-        while (i_le < sr)
-        {
-            T[i] = pom[i_le];
-            i_le++;
-            i++;
-        }
-    }
-}
-void sortuj(int l, int p)
-{
-    int sr = (l + p) / 2;
-    if (l < sr)
-    {
-        sortuj(l, sr);
-    }
-    if (sr + 1 < p)
-    {
-        sortuj(sr + 1, p);
-    }
-    scalaj(l, p);
-} 
+//void scalaj(int l, int p)
+//{
+//    int[] pom = new int[n];
+//    for (int a = 0; a < n; a++)
+//    {
+//        pom[a] = T[a];
+//    }
+//    int i;
+//    int sr = (l + p) / 2;
+//    i = l; //index tabeli
+//    int i_le = l;
+//    int i_pr = sr;
+//    while (i_le <= sr && i_pr <= p)
+//    {
+//        if (pom[i_le] < pom[i_pr])
+//        {
+//            T[i] = pom[i_le];
+//            i_le++;
+//        }
+//        else
+//        {
+//            T[i] = pom[i_pr];
+//            i_pr++;
+//        }
+//        i++;
+//    }
+//    if (i_le > sr)
+//    {
+//        while (i_pr < p)
+//        {
+//            T[i] = pom[i_pr];
+//            i_pr++;
+//            i++;
+//        }
+//    }
+//    else
+//    {
+//        while (i_le < sr)
+//        {
+//            T[i] = pom[i_le];
+//            i_le++;
+//            i++;
+//        }
+//    }
+//}
+//void sortuj(int l, int p)
+//{
+//    int sr = (l + p) / 2;
+//    if (l < sr)
+//    {
+//        sortuj(l, sr);
+//    }
+//    if (sr + 1 < p)
+//    {
+//        sortuj(sr + 1, p);
+//    }
+//    scalaj(l, p);
+//}
 //7.Quicksort Hoare
+///SPOSÓB-#1
+////void quicksortHoare(int lewy, int prawy)
+////{
+////    int i, j, piwot;
+////    i = (lewy + prawy) / 2;
+////    piwot = T[i];
+////    T[i] = T[prawy];
+////    for (j = i = lewy; i < prawy; i++)
+////    {
+////        if (T[i] < piwot)
+////        {
+////            int temp = T[i];
+////            T[i] = T[j];
+////            T[j] = temp;
+////            j++;
+////        }
+////    }
+////    T[prawy] = T[j];
+////    T[j] = piwot;
+////    if (lewy < j - 1) quicksortHoare(lewy, j - 1);
+////    if (j + 1 < prawy) quicksortHoare(j + 1, prawy);
+////}
+///SPOSÓB-#2
+//int[] T = new int[10];
+//void quicksortHoare(int lewy, int prawy)
+//{
+//    int i = lewy;
+//    int j = prawy;
+//    int pivot = T[(lewy+prawy)/2];
+//    while (i < j)
+//    {
+//        while (T[i] < pivot)
+//        {
+//            i = i + 1;
+//        }
+//        while (T[i] > pivot)
+//        {
+//            i = i - 1;
+//        }
+//        if (i <= j)
+//        {
+//            T[i] = T[j];
+//            T[j] = T[i];
+//            i = i + 1;
+//            j = j - 1;
+//        }
+//    }
+//    if (lewy < j)
+//    {
+//        quicksortHoare(lewy, j);
+//    }
+//    if (prawy > i)
+//    {
+//        quicksortHoare(i, prawy);
+//    }
+//}
 //8.Quicksort Lomuto
 
 //Wyświetlenie posortowanej tablicy
-Console.WriteLine("\n");
-for (int i = 0; i < n; i++)
-    Console.Write(T[i] + " ");
+//Console.WriteLine("\n");
+//for (int i = 0; i < n; i++)
+//    Console.Write(T[i] + " ");
