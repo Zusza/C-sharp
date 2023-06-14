@@ -546,3 +546,110 @@
 //}
 
 //Console.WriteLine("Suma: " + sum);
+
+Zadania ze spr (14.06.23)
+///Zad.1-Podaj f i g i wypisz trzycyfrowe wielokrotności różnicy g i f (różnica dodatnia nawet gdy f > g)
+//int f = int.Parse(Console.ReadLine());
+//int g = int.Parse(Console.ReadLine());
+//int[] T = new int[999];
+//int d = g - f;
+//for (int i = 1; i < T.Length; i++)
+//{
+//    int h = d * i;
+//    if (h > 99 && h < 999)
+//    {
+//        T[i] += h;
+//    }
+//}
+
+//foreach (int i in T)
+//{
+//    Console.WriteLine(i);
+//}
+///Zad.2
+//int[] T = new int[20];
+//Random r = new Random();
+//int x = 0;
+
+//bool cp(int i)
+//{
+//    while (i > 0)
+//    {
+//        int d = i % 10;
+//        if (d % 2 != 0)
+//        {
+//            return false;
+//        }
+//        i /= 10;
+//    }
+//    return true;
+//}
+//bool nd(int j)
+//{
+//    return j % 10 == 0;
+//}
+
+//while (x < 20)
+//{
+//    int c = r.Next(100, 1000);
+//    if (cp(c) && !nd(c))
+//    {
+//        T[x] = c;
+//        x++;
+//    }
+//}
+//foreach (int i in T)
+//{
+//    Console.WriteLine(i);
+//}
+
+//Zad.3
+//using System;
+//using System.Collections;
+
+//Random r = new Random();
+//int[] T = new int[1200];
+
+//for (int i = 0; i < T.Length; i++)
+//{
+//    T[i] = r.Next(100, 1000);
+//}
+//foreach (int i in T)
+//{
+//    System.Console.WriteLine(i);
+//}
+
+//bool cdr(int index)
+//{
+//    int ile = 1;
+//    for (int i = 0; i < T.Length; i++)
+//    {
+//        if (T[index] == T[i] && index != i) ile++;
+//    }
+//    if (ile == 3)
+//    {
+//        return true;
+//    }
+//    else
+//    {
+//        return false;
+//    }
+//}
+
+//ArrayList arrayList = new ArrayList();
+//int suma = 0;
+//int ilo = 0;
+
+//for (int i = 0; i < T.Length; i++)
+//{
+//    if (cdr(i) && !arrayList.Contains(T[i]))
+//    {
+//        arrayList.Add(T[i]);
+//        suma += (T[i] * 3);
+//        ilo += 1;
+//    }
+//}
+//Console.WriteLine("Suma:" + suma);
+//Console.WriteLine("Ilość: " + ilo);
+
+Zad.4 - Macież NxN i podaj sumę drugiej ramki (odejmowanie od 1 ramki)
